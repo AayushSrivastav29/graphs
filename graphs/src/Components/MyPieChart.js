@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 const COLORS = ['#0088FE', '#00C49F'];
@@ -19,7 +19,10 @@ const MyPieChart = ({ data }) => {
   }));
 
   return (
-      <PieChart width={400} height={400}>
+    <div className="flex flex-col items-center justify-center w-full h-full p-4 ">
+      <h2 className="text-white mb-1 text-2xl">Distribution of protocols:</h2>
+      <ResponsiveContainer width="100%" height={400}>
+      <PieChart>
         <Pie
           data={transformedData}
           cx={200}
@@ -36,7 +39,8 @@ const MyPieChart = ({ data }) => {
         <Tooltip />
         <Legend />
       </PieChart>
-
+      </ResponsiveContainer>
+      </div>
   );
 };
 
